@@ -1,0 +1,38 @@
+.card {
+  background-color: white;
+
+  &-wrapper { padding: 20px; }
+  &-margin-top { margin-top: $vertical-margin; }
+  &:nth-child(n+2) { margin-top: $vertical-margin; }
+  &-indicator {
+    &-red { border-top: solid 3px $red; }
+    &-blue { border-top: solid 3px $blue; }
+    &-green { border-top: solid 3px $green; }
+  }
+
+  // Fonts
+  &-title {
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+  &-contents {
+    color: #9b9ba0;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+  }
+  &-btn {
+    font-size: 12px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  &-half {
+    margin: 10px;
+
+    .card-wrapper { padding: 15px; }
+    .card-contents { margin-top: 6px; }
+  }
+}
