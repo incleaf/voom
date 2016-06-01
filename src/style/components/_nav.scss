@@ -1,0 +1,20 @@
+.nav {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  color: white;
+  background-color: rgba(255, 18, 39, 0.8);
+  h1 {
+    font-size: 30px;
+    font-weight: 600;
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style-type: none;
+    li {
+      display: inline;
+      &:nth-child(n+2) { margin-left: 10px; }
+    }
+  }
+}

@@ -1,16 +1,11 @@
 import React from 'react';
-import { IndexLink, Link } from 'react-router';
+import Nav from '../components/Nav';
 
 class Main extends React.Component {
   render() {
     return (
       <div>
-        <ul role="nav">
-          <li><Link to="/" activeClassName="active" onlyActiveOnIndex={true}>Home</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
-          <li><Link to="/feed">Feed</Link></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
+        <Nav />
         { this.props.children }
       </div>
     );
