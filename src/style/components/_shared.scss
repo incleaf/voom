@@ -1,0 +1,32 @@
+.divider {
+  border: none;
+  height: 1px;
+  color: #d6d6dc; /* old IE */
+  background-color: #d6d6dc; /* Modern Browsers */
+  margin: 0;
+}
+
+.title {
+  display: block;
+  float: left;
+  font-size: 20px;
+  font-weight: 500;
+  color: white;
+  &-wrapper {
+    vertical-align: bottom;
+    height: 30px;
+    line-height: 30px;
+  }
+  &-more {
+    float: right;
+    display: block;
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+  }
+  &-divider {
+    @extend .divider;
+    margin-top: 8px;
+  }
+}
+

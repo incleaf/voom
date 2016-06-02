@@ -1,0 +1,47 @@
+.main {
+  &-search-box {
+    padding-top: $navbar-height;
+    text-align: center;
+    background-image: url(/static/img/background.jpg);
+    background-size: cover;
+    height: 300px;
+
+    .wrapper { overflow: hidden; }
+    .input-box {
+      margin-top: 100px;
+      display: inline-block;
+      position: relative;
+    }
+    input {
+      background-color: white;
+      border-radius: 6px;
+      border: solid 3px white;
+      width: 400px;
+      height: 30px;
+      font-size: 18px;
+      color: black;
+      padding: 10px;
+    }
+    button {
+      position: absolute;
+      border: none;
+      font-size: 24px;
+      background-color: transparent;
+      right: 0;
+      height: 100%;
+      width: 60px;
+    }
+    p {
+      width: 100%;
+      text-align: center;
+      text-decoration: underline;
+      position: absolute;
+      bottom: -30px;
+      font-size: 12px;
+      color: #FFE11A;
+    }
+  }
+  &-video-box {
+    padding: 30px 0;
+  }
+}

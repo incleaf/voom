@@ -9,9 +9,9 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import Main from './containers/Main';
 import Login from './containers/Login';
 import Feed from './containers/Feed';
-import Signup from './containers/Signup';
+import App from './containers/App';
 import reducers from 'reducers';
-import './style/main.scss';
+import './style/index.scss';
 
 const store = configureStore();
 
@@ -23,17 +23,10 @@ const history = syncHistoryWithStore(browserHistory, store);
 render((
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/" component={Main}>
-        {
-          //<Route path="users" component={Users}>
-          //  <Route path="/user/:userId" component={User}/>
-          //</Route>
-        //<Route path="*" component={Main} />
-        }
+      <Route path="/" component={App}>
+        <Route path="/feed" component={Feed} />
+        <Route path="/login" component={Login} />
       </Route>
-      <Route path="/feed" component={Feed} />
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={Signup} />
     </Router>
   </Provider>
-), document.getElementById('app'));
+), document.getElementById('voom'));

@@ -5,13 +5,15 @@ class Nav extends React.Component {
   render() {
     return (
       <nav className="nav">
-        <h1>VOOM</h1>
-        <ul>
-          <li><Link to="/" activeClassName="active" onlyActiveOnIndex={true}>Home</Link></li>
-          <li><Link to="/signup">Sign Up</Link></li>
-          <li><Link to="/feed">Feed</Link></li>
-          <li><Link to="/login">Login</Link></li>
-        </ul>
+        <div className="wrapper">
+          <h1><Link to="/" activeClassName="active" onlyActiveOnIndex={true}>voom.kr</Link></h1>
+          <ul>
+            <li><Link to="/feed"><strong>검색</strong></Link></li>
+            <li><Link to="/feed">통계</Link></li>
+            <li><Link to="/feed">듀오</Link></li>
+            <li><Link to="/">영상</Link></li>
+          </ul>
+        </div>
       </nav>
     );
   }

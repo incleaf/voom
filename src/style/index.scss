@@ -9,6 +9,10 @@
 @import "components/button";
 @import "components/slider";
 @import "components/nav";
+@import "components/shared";
+
+@import "containers/app";
+@import "containers/main";
 
 .feed {
   &-addit-has-saved {
