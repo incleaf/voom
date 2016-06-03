@@ -1,5 +1,6 @@
 .col {
-  display: inline-block;
+  display: block;
+  float: left;
 
   &-1 { width: 8.333333333% }
   &-2 { width: 16.666666666% }

@@ -2,6 +2,16 @@ import React from 'react';
 import Nav from '../components/Nav';
 import MdSearch from 'react-icons/lib/md/search';
 
+const TitleWithDivider = (props) => (
+  <div>
+    <div className="title-wrapper">
+      <h2 className="title">{props.title}</h2>
+      <span className="title-more">더 보기 ></span>
+    </div>
+    <hr className="title-divider"/>
+  </div>
+);
+
 class Main extends React.Component {
   render() {
     return (
@@ -15,16 +25,22 @@ class Main extends React.Component {
             </div>
           </div>
         </section>
-        <section className="main-video-box">
-          <div className="wrapper">
-            <div className="title-wrapper">
-              <h2 className="title">베스트 영상</h2>
-              <span className="title-more">더 보기 ></span>
-            </div>
-            <div className="clearfix"></div>
-            <hr className="title-divider"/>
+
+        <div className="contents-wrapper wrapper">
+          <div className="col col-8">
+            <section className="main-video-box">
+              <TitleWithDivider title="Hot 영상"/>
+            </section>
+            <section className="main-post-box">
+              <TitleWithDivider title="Hot 게시물"/>
+            </section>
           </div>
-        </section>
+          <div className="col col-4">
+            <section className="main-ranking-box">
+              <TitleWithDivider title="랭킹"/>
+            </section>
+          </div>
+        </div>
       </div>
     );
   }
