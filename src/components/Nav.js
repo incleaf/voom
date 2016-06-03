@@ -11,6 +11,7 @@ class Nav extends React.Component {
             <li><Link to="/feed"><strong>검색</strong></Link></li>
             <li><Link to="/feed">통계</Link></li>
             <li><Link to="/feed">듀오</Link></li>
+            <li><Link to="/feed">자게</Link></li>
             <li><Link to="/">영상</Link></li>
           </ul>
         </div>
