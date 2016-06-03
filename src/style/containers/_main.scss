@@ -6,9 +6,9 @@
     background-size: cover;
     height: 300px;
 
-    .wrapper { overflow: hidden; }
+    .wrapper { overflow: visible; }
     .input-box {
-      margin-top: 100px;
+      margin-top: 80px;
       display: inline-block;
       position: relative;
     }

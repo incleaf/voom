@@ -1,6 +1,6 @@
 import React from 'react';
-import Nav from '../components/nav';
-import Main from '../containers/main';
+import Nav from '../components/Nav';
+import Main from '../containers/Main';
 
 class App extends React.Component {
   render() {
