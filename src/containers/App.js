@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../components/Nav';
 import Main from '../containers/Main';
+import Footer from '../components/Footer';
 
 class App extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class App extends React.Component {
           ? this.props.children
           : <Main />
         }
+        <Footer />
       </div>
     );
   }

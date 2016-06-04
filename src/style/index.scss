@@ -4,6 +4,8 @@
 @import "base/grid";
 
 @import "utils/utils";
+@import "utils/animations";
+
 @import "components/hr";
 @import "components/card";
 @import "components/button";
@@ -11,6 +13,7 @@
 @import "components/nav";
 @import "components/shared";
 @import "components/winningChart";
+@import "components/footer";
 
 @import "containers/app";
 @import "containers/main";

@@ -1,0 +1,15 @@
+.footer {
+  background-image: url(/static/img/binding_dark.png);
+  background-repeat: repeat;
+  color: white;
+  .wrapper {  padding: 30px 0; }
+  &-title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+    letter-spacing: 2px;
+  }
+  &-copyright {
+    font-size: 14px;
+  }
+}
