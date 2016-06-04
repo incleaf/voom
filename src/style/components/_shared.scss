@@ -6,18 +6,20 @@
   margin: 0;
 }
 
-.title {
-  display: block;
-  float: left;
-  font-size: 20px;
-  font-weight: 500;
-  color: white;
-  &-wrapper {
+.section-wrapper {
+  &-title {
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+  }
+  &-title-wrapper {
     vertical-align: bottom;
     height: 30px;
     line-height: 30px;
   }
-  &-more {
+  &-title-more {
     float: right;
     display: block;
     color: white;
@@ -27,6 +29,11 @@
   &-divider {
     @extend .divider;
     margin-top: 8px;
+  }
+  &-contents {
+    margin-top: 12px;
+    background-color: #fff;
+    border-radius: 3px;
   }
 }
 

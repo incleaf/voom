@@ -1,5 +1,10 @@
+$thumbnailWidth: 160px;
+
 .main {
-  &-search-box {
+  .contents-wrapper {
+    padding: 30px 0;
+  }
+  .search {
     padding-top: $navbar-height;
     text-align: center;
     background-image: url(/static/img/background.jpg);
@@ -7,48 +12,131 @@
     height: 300px;
 
     .wrapper { overflow: visible; }
-    .input-box {
-      margin-top: 80px;
+    .searchbox {
+      margin-top: 100px;
       display: inline-block;
       position: relative;
+      &-input {
+        background-color: white;
+        border-radius: 6px;
+        border: solid 3px white;
+        width: 400px;
+        height: 50px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: black;
+        padding: 10px;
+      }
+      &-btn {
+        position: absolute;
+        border: none;
+        font-size: 24px;
+        background-color: transparent;
+        right: 0;
+        height: 100%;
+        width: 60px;
+      }
     }
-    input {
-      background-color: white;
-      border-radius: 6px;
-      border: solid 3px white;
+    &-log {
       width: 400px;
-      height: 30px;
-      font-size: 18px;
-      color: black;
-      padding: 10px;
+      margin: 0 auto;
+      list-style: none;
+      text-align: center;
+      color: white;
+      &-title {
+        font-size: 12px;
+        display: block;
+        font-weight: 600;
+        margin: 20px 0 6px 0;
+      }
+      &-item {
+        display: inline-block;
+        line-height: 18px;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: -1px;
+        &:nth-child(n+2) { padding-left: 10px; }
+      }
     }
-    button {
-      position: absolute;
-      border: none;
-      font-size: 24px;
-      background-color: transparent;
-      right: 0;
-      height: 100%;
-      width: 60px;
-    }
-    p {
+
+    &-tip {
       width: 100%;
       text-align: center;
       text-decoration: underline;
-      position: absolute;
-      bottom: -30px;
+      margin-top: 20px;
       font-size: 12px;
       color: #FFE11A;
     }
   }
-  &-ranking-box {
+  .ranking {
     margin-left: 30px;
   }
-  .contents-wrapper {
-    padding-top: 30px;
-  }
-  &-video-box {
+  .video {
+    &-item {
+      &:nth-child(n+2) {
+        border-top: solid 1px #ccc;
+      }
+      &-thumbnail {
+        width: 200px;
+        display: inline-block;
+        float: left;
+        img { width: 100%; height: 100%; }
+      }
+      &-contents {
+        width: 400px;
+        margin: 30px;
+        display: inline-block;
+      }
+      &-title {
+        font-weight: 400;
+        text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
+      }
+      &-info {
+        font-size: 18px;
+        margin-top: 16px;
 
-    //padding: 30px 0;
+        &-item:nth-child(n+2) {
+          margin-left: 16px;
+        }
+      }
+    }
+  }
+}
+
+.posts {
+  margin-top: 30px;
+  &-item {
+    &:nth-child(n+2) {
+      border-top: solid 1px #ccc;
+    }
+    padding: 20px;
+    &-info {
+      float: right;
+      &-item:nth-child(n+2) { margin-left: 16px; }
+    }
+    &-title {
+      font-weight: 400;
+      width: 400px;
+      display: inline-block;
+    }
+  }
+}
+
+.ranking {
+  &-item {
+    &:nth-child(n+2) { border-top: solid 1px #ccc; }
+    line-height: 50px;
+    font-size: 14px;
+    span { display: inline-block; }
+    &-ranking {
+      width: 50px;
+      text-align: center;
+      font-weight: 600;
+    }
+    &-chart {
+      float: right;
+      margin-top: 14px;
+      padding-right: 10px;
+    }
   }
 }

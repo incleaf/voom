@@ -8,7 +8,6 @@ class Nav extends React.Component {
         <div className="wrapper">
           <h1><Link to="/" activeClassName="active" onlyActiveOnIndex={true}>voom.kr</Link></h1>
           <ul>
-            <li><Link to="/feed"><strong>검색</strong></Link></li>
             <li><Link to="/feed">통계</Link></li>
             <li><Link to="/feed">듀오</Link></li>
             <li><Link to="/feed">자게</Link></li>
