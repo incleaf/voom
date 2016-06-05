@@ -120,12 +120,18 @@ class Main extends React.Component {
           <div className="wrapper">
             <div className="searchbox">
               <input className="searchbox-input"
-                     placeholder="배틀태그를 입력하세요"
-                     type="text"
-                     onChange={e => this.setState({searchbox: e.target.value})}
-                     onKeyPress={e => {
-                      if (e.charCode === 13) dispatch(searchBattleTag(this.state.searchbox, this.props.router))
-                     }}
+               placeholder="배틀태그를 입력하세요"
+               type="text"
+               onChange={e => this.setState({searchbox: e.target.value})}
+               onKeyPress={e => {
+                if (e.charCode === 13) {
+                  if (/^\D.{2,11}#\d{4}$/.test(this.state.searchbox)) {
+                    dispatch(searchBattleTag(this.state.searchbox, this.props.router));
+                  } else {
+                    alert('올바르지 않은 배틀태그입니다.');
+                  }
+                }
+               }}
               />
               <button className="searchbox-btn"><MdSearch /></button>
             </div>

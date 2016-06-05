@@ -18,15 +18,30 @@ export const MAIN_REC_SEARCH = 'MAIN_REC_SEARCH';
 const SERVER_URL = (api) => `http://localhost:3000${api}`;
 
 export const searchBattleTag = (battleTag, router) => (dispatch, getState) => {
-  dispatch({
-    type: MAIN_REQ_SEARCH,
-    recents: getState().recents
-  });
-  return dispatch(reqPlayerData(battleTag))
+  const recents  = getState().player.recents;
+  const encodedBattleTag = encodeURIComponent(battleTag);
+  const nickname = battleTag.match(/.+?(?=#)/)[0];
+  const nicknameNumber = battleTag.match(/#\s*(\w+)/)[0]; // (/\#(.*)/)
+  let isPageNavigated = false;
+
+  dispatch({ type: MAIN_REQ_SEARCH });
+
+  // 현재 state 트리에서 캐싱해둔 최근에 검색한 배틀태그를 불러와
+  // 매칭되는 아이템이 있으면 바로 화면에 렌더링한다
+  for (const item of recents) {
+    if (item === encodedBattleTag) {
+      isPageNavigated = true;
+      router.push(`/player/${encodedBattleTag}`);
+    }
+  }
+
+  return dispatch(reqPlayerData(encodedBattleTag, nickname, nicknameNumber))
     .then(responseCode => {
       dispatch({
         type: MAIN_REC_SEARCH, responseCode
       });
-      router.push(`/player/${battleTag}`);
+      if (!isPageNavigated) {
+        router.push(`/player/${encodedBattleTag}`);
+      }
     })
 };

@@ -89,16 +89,6 @@ function searchReducer(state = {
 }, action) {
   switch (action.type) {
     case actions.MAIN_REQ_SEARCH:
-      // 현재 state 트리에서 캐싱해둔 최근에 검색한 배틀태그를 불러와
-      // 매칭되는 아이템이 있으면 바로 화면에 렌더링하고 새 데이터를 받아오면
-      // 화면을 업데이트한다.
-      if (action.recents) {
-        for (const item of action.recents) {
-          if (item === action.battleTag) {
-            // TODO: 캐싱된 데이터로 미리 렌더링
-          }
-        }
-      }
       return { isFetching: true };
     case actions.MAIN_REC_SEARCH:
       if (action.responseCode === 404) {

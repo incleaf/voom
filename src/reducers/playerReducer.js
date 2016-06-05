@@ -33,6 +33,8 @@ export default function userReducer(state = {
           ...state.data,
           [action.battleTag]: {
             data: action.data,
+            nickname: action.nickname,
+            nicknameNumber: action.nicknameNumber,
             isFetching: false
           }
         }
