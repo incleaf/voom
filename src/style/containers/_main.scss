@@ -1,11 +1,10 @@
 $thumbnailWidth: 160px;
 
-.main {
+.page-main {
   .contents-wrapper {
     padding: 30px 0;
   }
   .search {
-    padding-top: $navbar-height;
     text-align: center;
     background-image: url(/static/img/background.jpg);
     background-size: cover;
@@ -26,6 +25,9 @@ $thumbnailWidth: 160px;
         font-size: 14px;
         color: black;
         padding: 10px;
+        &:focus {
+          outline: none;
+        }
       }
       &-btn {
         position: absolute;

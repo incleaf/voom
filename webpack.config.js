@@ -41,7 +41,7 @@ const common = {
 // Development config
 const dev = merge(common, {
   port: PORT,
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: {
     add2paper: [
       'webpack-dev-server/client?http://0.0.0.0:' + PORT,

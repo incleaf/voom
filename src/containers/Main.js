@@ -1,15 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import Nav from '../components/Nav';
-import YoutubeThumbnail from  '../components/YoutubeThumbnail';
-import WinningChart from '../components/WinningChart';
-
+import { withRouter } from 'react-router'
 
 import MdSearch from 'react-icons/lib/md/search';
 import FaThumbsOUp from 'react-icons/lib/fa/thumbs-o-up';
 import FaThumbsODown from 'react-icons/lib/fa/thumbs-o-down';
 import FaCommentingO from 'react-icons/lib/fa/commenting-o';
+
+import Nav from '../components/Nav';
+import YoutubeThumbnail from  '../components/YoutubeThumbnail';
+import WinningChart from '../components/WinningChart';
+
+import { searchBattleTag } from '../actions/mainAction';
 
 const SectionWrapper = (props) => (
   <div className="section-wrapper">
@@ -31,8 +33,11 @@ const SectionWrapper = (props) => (
 );
 
 class Main extends React.Component {
+  componentDidMount() {
+    //debugger;
+  }
   render() {
-    const { searchLog, video, post, ranking } = this.props;
+    const { searchLog, video, post, ranking, dispatch } = this.props;
     const renderSearchLogs = () => {
       if (searchLog.data.length === 0) return;
       return (
@@ -110,11 +115,18 @@ class Main extends React.Component {
     };
 
     return (
-      <div className="main">
+      <div className="page-main">
         <section className="search">
           <div className="wrapper">
             <div className="searchbox">
-              <input className="searchbox-input" placeholder="배틀태그를 입력하세요" type="text"/>
+              <input className="searchbox-input"
+                     placeholder="배틀태그를 입력하세요"
+                     type="text"
+                     onChange={e => this.setState({searchbox: e.target.value})}
+                     onKeyPress={e => {
+                      if (e.charCode === 13) dispatch(searchBattleTag(this.state.searchbox, this.props.router))
+                     }}
+              />
               <button className="searchbox-btn"><MdSearch /></button>
             </div>
             <p className="search-tip">※ 블리자드가 한글 검색을 지원하지 않아서, 영문 배틀태그만 검색이 가능합니다.</p>
@@ -152,7 +164,16 @@ class Main extends React.Component {
   }
 }
 
-Main.propTypes = {};
 Main.defaultProps = {};
+Main.propTypes = {
+  router: React.PropTypes.shape({
+    push: React.PropTypes.func.isRequired
+  }).isRequired
+};
 
-export default connect(state => state.main)(Main);
+export default withRouter(connect(
+  (state) => {
+    return {...state.main}
+  }
+)(Main));
+
