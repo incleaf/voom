@@ -25,7 +25,7 @@ render((
     <Router history={history}>
       <Route path="/" component={App}>
         <Route path="/feed" component={Feed} />
-        <Route path="/player/:battleTag" component={Player} />
+        <Route path="/player/:nickname/:nicknameNumber" component={Player} />
       </Route>
       {
         // TODO: Should display for user that you tried to undefined page

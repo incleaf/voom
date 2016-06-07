@@ -7,6 +7,34 @@
       padding: 60px 0;
       box-sizing: border-box;
       position: relative;
+      &-items {
+        margin-top: 20px;
+      }
+      &-item {
+        &:nth-child(n+2) { margin-left: 14px; }
+        display: inline-block;
+        min-width: 90px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        color: white;
+        .title {
+          background-color: rgba(140, 140, 140, 0.15);
+          padding: 5px 10px;
+          font-size: 14px;
+          color: rgb(211, 211, 211);
+          //height: 20px;
+          //line-height: 20px;
+        }
+        .value {
+          background-color: rgba(140, 140, 140, 0.4);
+          padding: 10px;
+          //height: 30px;
+          //line-height: 30px;
+          font-size: 20px;
+          letter-spacing: -1px;
+        }
+      }
     }
     &-statistics {
 
@@ -20,6 +48,14 @@
         font-weight: 400;
         letter-spacing: -1px;
         color: #9b9ba0;
+      }
+      &-favorite {
+        background-color: transparent;
+        border: none;
+        color: $yellow;
+        font-size: 30px;
+        padding-bottom: 5px;
+        svg { margin-bottom: 3px }
       }
     }
   }

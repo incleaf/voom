@@ -6,23 +6,31 @@ export default function userReducer(state = {
    * {
    *  data: {} // Received from server
    *  isFetching: true // Uses when render with caching data
+   *  isFavorite: false
    * }
    */
   data: {},
-  recents: []
+  recents: [],
+  favorites: []
 }, action) {
   switch (action.type) {
     case actions.PLAYER_REQ_DATA:
       if (state.hasOwnProperty[action.battleTag]) {
         return {
-            ...state,
-            [action.battleTag]: {
-              ...state.action.battleTag,
-              isFetching: true
-            }
-          };
+          ...state,
+          [action.battleTag]: {
+            ...state.action.battleTag,
+            isFetching: true
+          }
+        };
       } else {
-        return state;
+        return {
+          ...state,
+          [action.battleTag]: {
+            isFetching: true,
+            isFavorite: false
+          }
+        };
       }
     case actions.PLAYER_REC_DATA:
       return {
