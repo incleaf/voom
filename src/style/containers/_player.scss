@@ -8,7 +8,7 @@
       box-sizing: border-box;
       position: relative;
       &-items {
-        margin-top: 20px;
+        margin-top: 30px;
       }
       &-item {
         &:nth-child(n+2) { margin-left: 14px; }
@@ -20,7 +20,7 @@
         color: white;
         .title {
           background-color: rgba(140, 140, 140, 0.15);
-          padding: 5px 10px;
+          padding: 6px 10px;
           font-size: 14px;
           color: rgb(211, 211, 211);
           //height: 20px;
