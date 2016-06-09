@@ -48,7 +48,7 @@ export default {
           "kr": "평균 임무 기여 시간",
           "en": "objective_time"
         },
-        "type": "int"
+        "type": "time"
       },
       "solo_kill": {
         "text": {
@@ -220,7 +220,7 @@ export default {
               "kr": "임무 기여 시간",
               "en": "objective_time"
             },
-            "type": "int"
+            "type": "time"
           },
           "multi_kill": {
             "text": {
@@ -241,7 +241,7 @@ export default {
               "kr": "폭주 시간",
               "en": "time_spent_on_fire"
             },
-            "type": "int"
+            "type": "time"
           }
         },
         "text": {
@@ -272,7 +272,7 @@ export default {
               "kr": "폭주 시간",
               "en": "time_spent_on_fire"
             },
-            "type": "int"
+            "type": "time"
           },
           "solo_kill": {
             "text": {
@@ -286,7 +286,7 @@ export default {
               "kr": "임무 기여 시간",
               "en": "objective_time"
             },
-            "type": "int"
+            "type": "time"
           },
           "objective_kill": {
             "text": {
@@ -421,14 +421,14 @@ export default {
               "kr": "폭주 시간",
               "en": "time_spent_on_fire"
             },
-            "type": "int"
+            "type": "time"
           },
           "objective_time": {
             "text": {
               "kr": "임무 기여 시간",
               "en": "objective_time"
             },
-            "type": "int"
+            "type": "time"
           },
           "score": {
             "text": {
@@ -442,7 +442,7 @@ export default {
               "kr": "시간",
               "en": "time_played"
             },
-            "type": "int"
+            "type": "time"
           }
         },
         "text": {
@@ -451,7 +451,6 @@ export default {
         },
         "type": "object"
       },
-      "_miscellaneous": "기타",
       "miscellaneous": {
         "childs": {
           "melee_final_blow_most_game": {
@@ -520,17 +519,17 @@ export default {
   "heroes": [{
     "name": {
       "text": {
-        "kr": "파라",
+        "kr": "닉네임",
         "en": "name"
       },
-      "type": "int"
+      "type": "string"
     },
     "thumbnail_url": {
       "text": {
-        "kr": "http://cdn.voom.kr/heros/para.png",
+        "kr": "thumbnail_url",
         "en": "thumbnail_url"
       },
-      "type": "int"
+      "type": "string" // URL?
     },
     "role": {
       "text": {
@@ -544,7 +543,7 @@ export default {
         "kr": "누적 플레이 시간",
         "en": "played_time"
       },
-      "type": "int"
+      "type": "time"
     },
     "score": {
       "text": {
@@ -593,7 +592,7 @@ export default {
         "kr": "승률",
         "en": "win_percentage"
       },
-      "type": "int"
+      "type": "percentage"
     },
     "eliminations": {
       "text": {
@@ -628,7 +627,7 @@ export default {
         "kr": "명중률",
         "en": "accuracy"
       },
-      "type": "int"
+      "type": "percentage"
     },
     "damage_done": {
       "text": {
@@ -642,7 +641,7 @@ export default {
         "kr": "평균 임무 기여 시간",
         "en": "objective_time"
       },
-      "type": "int"
+      "type": "time"
     }
   }]
 };
