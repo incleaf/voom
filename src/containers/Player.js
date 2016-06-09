@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import TiStarOutline from 'react-icons/lib/ti/star-outline';
 import TiStar from 'react-icons/lib/ti/star';
 
-class Player extends React.Component {
-  renderCoreItems(data) {
-    if (!data) return;
-    const playerData = data.data;
+import { PlayerDataSelector } from '../utils/PlayerDataSelector';
 
+class Player extends React.Component {
+  renderCoreItems(playerInfo) {
+    if (!playerInfo) return;
+    const getPlayerData = PlayerDataSelector(playerInfo.data, 'kr');
+
+    console.log(getPlayerData('user_status', 'elimination'));
     return (
       <div className="user-core-items">
         <div className="user-core-item">
@@ -43,7 +47,7 @@ class Player extends React.Component {
 
   render() {
     const { nickname, nicknameNumber } = this.props.params;
-    const data  = this.props.data[`${nickname}#${nicknameNumber}`];
+    const playerInfo  = this.props.data[`${nickname}#${nicknameNumber}`];
 
     return (
       <div className="page-user">
@@ -52,12 +56,16 @@ class Player extends React.Component {
             <div className="user-battletag">
               {nickname}<span className="user-battletag-num">#{nicknameNumber}</span>
               <button className="user-battletag-favorite">
-                {data && data.isFavorite ? <TiStar /> : <TiStarOutline />}
+                {
+                  playerInfo && playerInfo.isFavorite
+                  ? <TiStar />
+                  : <TiStarOutline />
+                }
               </button>
             </div>
-            {this.renderCoreItems(data)}
+            {this.renderCoreItems(playerInfo)}
             {
-              data ? null :
+              playerInfo ? null :
               <div className="loading-wrapper">
                 <div className="loading-icon"></div>
               </div>
@@ -65,7 +73,7 @@ class Player extends React.Component {
           </div>
         </div>
       {
-        data ?
+        playerInfo ?
         <div className="user-statistics">
 
         </div>
