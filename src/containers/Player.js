@@ -5,12 +5,12 @@ import TiStarOutline from 'react-icons/lib/ti/star-outline';
 import TiStar from 'react-icons/lib/ti/star';
 
 import { PlayerDataSelector } from '../utils/PlayerDataSelector';
+import { reqPlayerData } from '../actions/playerAction';
 
 class Player extends React.Component {
   renderCoreItems(playerInfo) {
     if (!playerInfo) return;
     const getPlayerData = PlayerDataSelector(playerInfo.data, 'kr');
-
     console.log(getPlayerData('user_status', 'elimination'));
     return (
       <div className="user-core-items">
@@ -18,16 +18,18 @@ class Player extends React.Component {
           <div className="title">랭킹</div>
           <div className="value">983,551위</div>
         </div>
-        <div className="user-core-item">
-          <div className="title">점수</div>
-          <div className="value">{playerData.career_stats.game.score}점</div>
-        </div>
-        <div className="user-core-item">
-          <div className="title">승률</div>
-          <div className="value">
-            {(playerData.career_stats.game.won / playerData.career_stats.game.played) * 100}%
-          </div>
-        </div>
+        {
+        //<div className="user-core-item">
+        //  <div className="title">점수</div>
+        //  <div className="value">{playerData.career_stats.game.score}점</div>
+        //</div>
+        //<div className="user-core-item">
+        //  <div className="title">승률</div>
+        //  <div className="value">
+        //    {(playerData.career_stats.game.won / playerData.career_stats.game.played) * 100}%
+        //  </div>
+        //</div>
+        }
         <div className="user-core-item">
           <div className="title">K/D</div>
           <div className="value">3.12</div>
@@ -45,10 +47,19 @@ class Player extends React.Component {
     );
   }
 
+  componentDidMount() {
+    const { nickname, nicknameNumber } = this.props.params;
+    const playerInfo  = this.props.playerInfos[`${nickname}#${nicknameNumber}`];
+
+    if (!playerInfo) {
+      this.props.dispatch(reqPlayerData(nickname, nicknameNumber));
+    }
+  }
+
   render() {
     const { nickname, nicknameNumber } = this.props.params;
-    const playerInfo  = this.props.data[`${nickname}#${nicknameNumber}`];
-
+    const playerInfo  = this.props.playerInfos[`${nickname}#${nicknameNumber}`];
+    
     return (
       <div className="page-user">
         <div className="user-core">

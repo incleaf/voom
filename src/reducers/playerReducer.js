@@ -9,7 +9,7 @@ export default function userReducer(state = {
    *  isFavorite: false
    * }
    */
-  data: {},
+  playerInfos: {},
   recents: [],
   favorites: []
 }, action) {
@@ -37,16 +37,22 @@ export default function userReducer(state = {
         recents: state.recents.length < 10
           ? [...state.recents, action.battleTag]
           : [...state.recents.shift(), action.battleTag],
-        data: {
-          ...state.data,
-          [action.battleTag]: {
+        playerInfos: {
+          ...state.playerInfos,
+          [action.battleTag]: action.statusCode === 200 ? {
             data: action.data,
             nickname: action.nickname,
             nicknameNumber: action.nicknameNumber,
-            isFetching: false
+            isFetching: false,
+            failed: false
+          } : {
+            isFetching: false,
+            failed: true
           }
         }
       };
+    case actions.PLAYER_VALIDATE_USER:
+      return state;
     default: return state;
   }
 }

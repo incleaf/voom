@@ -35,7 +35,7 @@ export const searchBattleTag = (battleTag, router) => (dispatch, getState) => {
     }
   }
 
-  return dispatch(reqPlayerData(battleTag, nickname, nicknameNumber))
+  return dispatch(reqPlayerData(nickname, nicknameNumber))
     .then(responseCode => {
       dispatch({
         type: MAIN_REC_SEARCH, responseCode
