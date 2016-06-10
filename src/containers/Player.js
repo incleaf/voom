@@ -11,9 +11,18 @@ class Player extends React.Component {
   renderCoreItems(playerInfo) {
     if (!playerInfo) return;
     const getPlayerData = PlayerDataSelector(playerInfo.data, 'kr');
-    console.log(getPlayerData('user_status', 'elimination'));
+    console.log(getPlayerData(
+      ['user_status', 'elimination'],
+      ['user_status', 'ranking']
+    ));
     return (
       <div className="user-core-items">
+        {
+          // getPlayerData(
+          //   ['user_status', 'elimination'],
+          //   ['ranking']
+          // )
+        }
         <div className="user-core-item">
           <div className="title">랭킹</div>
           <div className="value">983,551위</div>

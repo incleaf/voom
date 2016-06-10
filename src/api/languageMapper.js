@@ -1,6 +1,13 @@
 export default {
   "user_status": {
     "childs": {
+      "ranking": {
+        "text": {
+          "kr": "랭킹",
+          "en": "Ranking"
+        },
+        "type": "int"
+      },
       "elimination": {
         "text": {
           "kr": "평균 처치",
