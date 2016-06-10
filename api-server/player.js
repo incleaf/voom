@@ -1,4 +1,5 @@
 module.exports = {
+  ranking: 12312331,
   user_status: {
     elimination: 8.34, //평균 처치
     damage_done: 3765, //평균 준 피해
