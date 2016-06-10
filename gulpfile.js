@@ -5,6 +5,7 @@ const merge = require('webpack-merge');
 const gulpWebpack = require('gulp-webpack');
 const del = require('del');
 const babel = require('gulp-babel');
+const forever = require('forever-monitor');
 
 // Config file
 const webpackConfig = require('./webpack.config');
@@ -30,8 +31,12 @@ gulp.task('webpack:build', () =>
         .pipe(gulp.dest('./static/js/'))
 );
 
+gulp.task('api-server', () =>
+  new forever.Monitor('api-server/app.js').start()
+);
+
 // Development server
-gulp.task('default', ['webpack-dev-server']);
+gulp.task('default', ['webpack-dev-server', 'api-server']);
 
 // Production build
 gulp.task('build', ['webpack:build']);

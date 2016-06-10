@@ -4,7 +4,7 @@
   "description": "Provides your personal overwatch statistics!",
   "main": "index.js",
   "scripts": {
-    "dev": "gulp",
+    "dev": "forever api-server/app.js; gulp",
     "start": "gulp",
     "build": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -32,6 +32,8 @@
     "del": "^2.2.0",
     "es3ify-loader": "^0.2.0",
     "es6-promise": "^3.1.2",
+    "forever": "^0.15.2",
+    "forever-monitor": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-util": "^3.0.7",
