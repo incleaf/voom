@@ -13,46 +13,30 @@ class Player extends React.Component {
     const getPlayerData = PlayerDataSelector(playerInfo.data, 'kr');
     console.log(getPlayerData(
       ['user_status', 'elimination'],
-      ['user_status', 'ranking']
+      ['user_status', 'ranking'],
+      'winningRate',
+      'killDeathRatio',
+      ['career_stats', 'game', 'won'],
+      'loseGame'
     ));
     return (
       <div className="user-core-items">
         {
-          // getPlayerData(
-          //   ['user_status', 'elimination'],
-          //   ['ranking']
-          // )
+          getPlayerData(
+            ['user_status', 'ranking'],
+            ['career_stats', 'game', 'score'],
+            'killDeathRatio',
+            'winningRate',
+            ['career_stats', 'game', 'won'],
+            'loseGame'
+          ).map((item, index) => (
+            <div key={index} className="user-core-item">
+              <div className="title">{item.key}</div>
+              <div className="value">{item.value}</div>
+            </div>
+          ))
         }
-        <div className="user-core-item">
-          <div className="title">랭킹</div>
-          <div className="value">983,551위</div>
-        </div>
-        {
-        //<div className="user-core-item">
-        //  <div className="title">점수</div>
-        //  <div className="value">{playerData.career_stats.game.score}점</div>
-        //</div>
-        //<div className="user-core-item">
-        //  <div className="title">승률</div>
-        //  <div className="value">
-        //    {(playerData.career_stats.game.won / playerData.career_stats.game.played) * 100}%
-        //  </div>
-        //</div>
-        }
-        <div className="user-core-item">
-          <div className="title">K/D</div>
-          <div className="value">3.12</div>
-        </div>
-        <div className="user-core-item">
-          <div className="title">승리 횟수</div>
-          <div className="value">4,285회</div>
-        </div>
-        <div className="user-core-item">
-          <div className="title">패배 횟수</div>
-          <div className="value">2,765회</div>
-        </div>
       </div>
-
     );
   }
 

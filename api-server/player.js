@@ -17,7 +17,7 @@ module.exports = {
       objective_kill: 177, //임무 기여 처치
       final_blow: 331, //결정타
       damage_done: 18003, //준 피해
-      eliminatios: 547, //처치
+      elimination: 547, //처치
       environmental_kill: 2, //환경 요소로 처치
       multikill: 1 //동시 처치
     },
@@ -42,7 +42,6 @@ module.exports = {
     },
     average: { //평균
       melee_final_blow: 0.02, //근접 공격 결정타
-      final_blow: 0.02, //결정타
       time_spent_on_fire: 39, //second(초)폭주시간
       solo_kill: 5.36, //솔로킬
       objective_time: 27, //second(초) 임무기여 시간

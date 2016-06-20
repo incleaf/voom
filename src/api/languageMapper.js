@@ -650,7 +650,41 @@ export default {
       },
       "type": "time"
     }
-  }]
+  }],
+  "custom": {
+    "winningRate": {
+      "text": {
+        "kr": "승률",
+        "en": "Winning Rate"
+      },
+      "type": "percentage",
+      "value": (data) => (data.career_stats.game.won / data.career_stats.game.played) * 100
+    },
+    "killDeathRatio": {
+      "text": {
+        "kr": "K/D",
+        "en": "K/D"
+      },
+      "type": "float",
+      "value": (data) => (data.career_stats.combat.elimination / data.career_stats.deaths.death) * 100
+    },
+    "loseGame": {
+      "text": {
+        "kr": "패배",
+        "en": "Game Losed"
+      },
+      "type": "int",
+      "value": (data) => (data.career_stats.game.played - data.career_stats.game.won)
+    }
+    //"killDeathRatio": {
+    //  "text:": {
+    //    "kr": "K/D",
+    //    "en": "K/D"
+    //  },
+    //  "type": "float",
+    //  "value": (data) => (data.career_stats.elimination / data.career_stats.deaths.death) * 100
+    //}
+  }
 };
 
 /*
